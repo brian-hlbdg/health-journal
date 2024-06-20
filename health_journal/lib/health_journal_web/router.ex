@@ -18,6 +18,8 @@ defmodule HealthJournalWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/profile", ProfileLive
+    live "/check_in", CheckInLive
   end
 
   # Other scopes may use custom stacks.

@@ -1,0 +1,18 @@
+<h1>Listing User Profiles</h1>
+
+<div>
+  <%= live_patch "New User Profile", to: Routes.user_profile_index_path(@socket, :new) %>
+</div>
+
+<div id="user_profiles">
+  <%= for profile <- @profiles do %>
+    <div>
+      <p><%= profile.height %></p>
+      <p><%= profile.weight %></p>
+      <p><%= profile.age %></p>
+      <!-- Other profile fields -->
+      <%= live_patch "Edit", to: Routes.user_profile_index_path(@socket, :edit, profile.id) %>
+      
+    </div>
+  <% end %>
+</div>
