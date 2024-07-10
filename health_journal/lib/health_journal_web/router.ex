@@ -23,9 +23,11 @@ defmodule HealthJournalWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", HealthJournalWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", HealthJournalWeb do
+    pipe_through :api
+
+    post "/health_data", HealthDataController, :create
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:health_journal, :dev_routes) do
